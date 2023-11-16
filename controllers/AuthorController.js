@@ -1,10 +1,10 @@
 const Joi = require("joi");
-const { Buku, Author } = require("../models/index.js");
+const { Author } = require("../models/index.js");
 const sendResponse = require("../helpers/responseHelpers.js");
 
 exports.getAuthorAll = async (_, res) => {
   try {
-    const author = await Author.findAll({ include: { model: Buku } });
+    const author = await Author.findAll({ include: "authorBook" });
     return res.status(200).send(sendResponse(200, "Success", null, author));
   } catch (error) {
     return res.status(500).send(sendResponse(500, "Internal Server Error", error, null));
@@ -14,7 +14,7 @@ exports.getAuthorAll = async (_, res) => {
 exports.getAuthorById = async (req, res) => {
   try {
     const { id } = req.params;
-    const author = await Author.findByPk(id, { include: { model: Buku } });
+    const author = await Author.findByPk(id, { include: "authorBook" });
     if (!author) return res.status(404).send(sendResponse(404, "author Not Found", null, null));
 
     return res.status(200).send(sendResponse(200, "Success", null, author));

@@ -580,6 +580,210 @@ _Response (400 - Validation Error)_
 }
 ```
 
+### PUT /api/buku/update-name/:id
+
+> Update Buku Name by Id
+
+_Request Params_
+
+```
+/<bukuId>
+```
+
+_Request Header_
+
+```
+not needed
+```
+
+_Request Body Author Name_
+
+```
+{
+    "judulBuku": "<string.min_length(3).required>",
+}
+```
+
+_Response (200)_
+
+```
+{
+    "data": {update_buku},
+    "message": "Success"
+}
+```
+
+_Response (400 - Buku Already Existed)_
+
+```
+{
+    "status": 404,
+    "message": "Buku Already Existed"
+}
+```
+
+_Response (400 - Validation Error)_
+
+```
+{
+    "status": 404,
+    "message": "\"judulBuku\" length must be more than 3"
+}
+```
+
+### PUT /api/buku/update-author/:id
+
+> Update Buku Author by Id
+
+_Request Params_
+
+```
+/<bukuId>
+```
+
+_Request Header_
+
+```
+not needed
+```
+
+_Request Body Author Name_
+
+```
+{
+    "authorId": "<author_id>",
+}
+```
+
+_Response (200)_
+
+```
+{
+    "data": {update_buku},
+    "message": "Success"
+}
+```
+
+_Response (400 - Author Not Found)_
+
+```
+{
+    "status": 404,
+    "message": "Author Not Found"
+}
+```
+
+_Response (400 - Validation Error)_
+
+```
+{
+    "status": 404,
+    "message": "\"author\" is required"
+}
+```
+
+### PUT /api/buku/update-addKategori/:id
+
+> Update Buku Add Kategori
+
+_Request Params_
+
+```
+/<bukuId>
+```
+
+_Request Header_
+
+```
+not needed
+```
+
+_Request Body Author Name_
+
+```
+{
+    "kategoriBukuId": "<kategoriBuku_id>",
+}
+```
+
+_Response (200)_
+
+```
+{
+    "data": {update_buku},
+    "message": "Success"
+}
+```
+
+_Response (400 - Kategori Not Found)_
+
+```
+{
+    "status": 404,
+    "message": "Kategori Not Found"
+}
+```
+
+_Response (400 - Validation Error)_
+
+```
+{
+    "status": 404,
+    "message": "\"KategoriBukuId\" is required"
+}
+```
+
+### PUT /api/buku/update-deleteKategori/:id
+
+> Update Buku Renove Kategori
+
+_Request Params_
+
+```
+/<bukuId>
+```
+
+_Request Header_
+
+```
+not needed
+```
+
+_Request Body Author Name_
+
+```
+{
+    "kategoriBukuId": "<kategoriBuku_id>",
+}
+```
+
+_Response (200)_
+
+```
+{
+    "data": {update_buku},
+    "message": "Success"
+}
+```
+
+_Response (400 - Kategori Not Found)_
+
+```
+{
+    "status": 404,
+    "message": "Kategori Not Found"
+}
+```
+
+_Response (400 - Validation Error)_
+
+```
+{
+    "status": 404,
+    "message": "\"KategoriBukuId\" is required"
+}
+```
+
 ### PUT /api/kategori/:id
 
 > Update by id
