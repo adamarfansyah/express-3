@@ -9,21 +9,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // Buku.belongsTo(models.Penulis, {
-      //   as: "penulisBook",
-      //   foreignKey: { name: "penulisId" },
-      // });
-      // Buku.belongsTo(models.KategoriBuku, {
-      //   as: "bookKategori",
-      //   foreignKey: {
-      //     name: "kategoriBukuId",
-      //   },
-      // });
-      // Buku.belongsToMany(models.Penulis, { through: models.Buku_Penulis });
-      // Buku.belongsToMany(models.KategoriBuku, { through: models.Buku_Kategori });
-      // Buku.belongsToMany(models.Penulis, {
-      //   through: models.Buku_Penulis,
-      // });
       Buku.belongsTo(models.Author, { as: "authorBook", foreignKey: { name: "authorId" } });
       Buku.belongsToMany(models.Author, { through: models.Buku_Author });
       Buku.belongsToMany(models.KategoriBuku, { through: models.Buku_Kategori });
