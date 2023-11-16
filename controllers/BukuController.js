@@ -22,7 +22,7 @@ exports.getBukuById = async (req, res) => {
       include: [{ model: Author, as: "authorBook" }, { model: KategoriBuku }],
     });
 
-    if (!book) return res.status(404).send(sendResponse(404, "Data Not Found", null, null));
+    if (!book) return res.status(404).send(sendResponse(404, "Buku Not Found", null, null));
 
     return res.status(200).send(sendResponse(200, "Success", null, book));
   } catch (error) {
@@ -88,7 +88,7 @@ exports.updateBukuById = async (req, res) => {
     }
 
     if (isJudulExist) {
-      return res.status(400).send(sendResponse(400, "Buku Already Existed", null, null));
+      return res.status(404).send(sendResponse(404, "Buku Already Existed", null, null));
     }
 
     if (!author) {

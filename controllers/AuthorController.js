@@ -29,7 +29,7 @@ exports.createAuthor = async (req, res) => {
 
     const existingAuthor = await Author.findOne({ where: { author } });
     if (existingAuthor)
-      return res.status(400).send(sendResponse(400, "User Already Existed", null, null));
+      return res.status(400).send(sendResponse(400, "Author Already Existed", null, null));
 
     const schema = Joi.object({
       author: Joi.string().min(3).required(),
@@ -52,9 +52,9 @@ exports.updateAuthorById = async (req, res) => {
     const authorData = await Author.findByPk(id);
     const existingAuthor = await Author.findOne({ where: { author } });
 
-    if (!authorData) return res.status(404).send(sendResponse(404, "User Not Found", null, null));
+    if (!authorData) return res.status(404).send(sendResponse(404, "Author Not Found", null, null));
     if (existingAuthor) {
-      return res.status(400).send(sendResponse(400, "User Already Existed", null, null));
+      return res.status(400).send(sendResponse(400, "Author Already Existed", null, null));
     }
 
     const schema = Joi.object({
